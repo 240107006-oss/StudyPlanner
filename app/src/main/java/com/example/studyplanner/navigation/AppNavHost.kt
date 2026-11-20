@@ -17,6 +17,7 @@ import androidx.navigation.NavType
 import androidx.navigation.navArgument
 import com.example.studyplanner.R
 import com.example.studyplanner.ui.screens.TaskDetailScreen
+import com.example.studyplanner.ui.screens.AddTaskScreen
 
 @Composable
 fun AppNavHost(
@@ -37,7 +38,7 @@ fun AppNavHost(
                 onTaskClick = { taskId ->
                     navController.navigate(Routes.taskDetail(taskId))
                 },
-                onAddClick = {}
+                onAddClick = { navController.navigate(Routes.ADD_TASK) }
             )
         }
         composable(
@@ -54,6 +55,15 @@ fun AppNavHost(
                 )} else {
                 Text(stringResource(R.string.task_not_found))
             }
+        }
+        composable(Routes.ADD_TASK) {
+            AddTaskScreen(
+                onSaveClick = { title, subject, description, dueDate ->
+                    viewModel.addTask(title, subject, description, dueDate)
+                    navController.navigateUp()
+                },
+                onBackClick = { navController.navigateUp() }
+            )
         }
     }
 }
