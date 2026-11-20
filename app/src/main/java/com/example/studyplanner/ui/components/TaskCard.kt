@@ -18,6 +18,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.studyplanner.R
 import com.example.studyplanner.data.Task
+import androidx.compose.ui.tooling.preview.Preview
+import com.example.studyplanner.ui.theme.StudyPlannerTheme
 
 
 @Composable
@@ -56,5 +58,22 @@ fun TaskCard(
                 )
             }
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun TaskCardPreview() {
+    StudyPlannerTheme {
+        TaskCard(
+            task = Task(
+                id = 1,
+                title = "Android group project",
+                subject = "Mobile Development",
+                description = "Finish MVVM and navigation",
+                dueDate = "Sat"
+            ),
+            onClick = {}
+        )
     }
 }
