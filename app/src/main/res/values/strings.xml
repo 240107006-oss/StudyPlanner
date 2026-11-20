@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">StudyPlanner</string>
+    <string name="tasks_title">My Tasks</string>
+    <string name="add_task">Add task</string>
+    <string name="due_date">Due: %1$s</string>
+    <string name="status_done">Done</string>
+    <string name="status_in_progress">In progress</string>
+    <string name="no_tasks">No tasks yet. Tap + to add one.</string>
 </resources>
