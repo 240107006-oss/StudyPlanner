@@ -48,8 +48,10 @@ fun AppNavHost(
             val task = uiState.tasks.find { it.id == taskId }
 
             if (task != null) {
-                TaskDetailScreen(task = task)
-            } else {
+                TaskDetailScreen(
+                    task = task,
+                    onBackClick = { navController.navigateUp() }
+                )} else {
                 Text(stringResource(R.string.task_not_found))
             }
         }
