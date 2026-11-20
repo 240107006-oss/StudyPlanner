@@ -8,6 +8,8 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
+import androidx.compose.ui.tooling.preview.Preview
+import com.example.studyplanner.ui.theme.StudyPlannerTheme
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.Icons
 import androidx.compose.material3.Scaffold
@@ -56,5 +58,34 @@ fun TaskListScreen(
                 }
             }
         }
+    }
+}
+
+
+@Preview(showBackground = true)
+@Composable
+fun TaskListScreenPreview() {
+    StudyPlannerTheme {
+        TaskListScreen(
+            tasks = listOf(
+                Task(1, "Android group project", "Mobile Development", "Finish MVVM", "Sat"),
+                Task(2, "Lab report", "Networks", "Answer questions", "Mon", isDone = true),
+                Task(3, "Prepare for quiz", "Databases", "Chapters 4-6", "Wed")
+            ),
+            onTaskClick = {},
+            onAddClick = {}
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun TaskListScreenEmptyPreview() {
+    StudyPlannerTheme {
+        TaskListScreen(
+            tasks = emptyList(),
+            onTaskClick = {},
+            onAddClick = {}
+        )
     }
 }
