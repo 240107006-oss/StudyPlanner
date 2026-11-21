@@ -22,13 +22,18 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.TopAppBar
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material3.Button
+import androidx.compose.material3.OutlinedButton
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TaskDetailScreen(
     task: Task,
-    onBackClick: () -> Unit
+    onBackClick: () -> Unit,
+    onToggleDone: () -> Unit,
+    onDeleteClick: () -> Unit
 ) {
     Scaffold(
         topBar = {
@@ -73,6 +78,17 @@ fun TaskDetailScreen(
                 text = task.description,
                 style = MaterialTheme.typography.bodyLarge
             )
+            Spacer(modifier = Modifier.height(24.dp))
+            Button(
+                onClick = onToggleDone,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(
+                    stringResource(
+                        if (task.isDone) R.string.mark_in_progress else R.string.mark_done
+                    )
+                )
+            }
         }
     }
 }
@@ -89,7 +105,9 @@ fun TaskDetailScreenPreview() {
                 description = "Finish MVVM and navigation",
                 dueDate = "Sat"
             ),
-            onBackClick = {}
+            onBackClick = {},
+            onToggleDone = {},
+            onDeleteClick = {}
         )
     }
 }

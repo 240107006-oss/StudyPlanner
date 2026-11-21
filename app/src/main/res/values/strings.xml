@@ -15,4 +15,7 @@
     <string name="field_description">Description</string>
     <string name="field_due_date">Due date</string>
     <string name="save">Save</string>
+    <string name="mark_done">Mark as done</string>
+    <string name="mark_in_progress">Mark as in progress</string>
+    <string name="delete_task">Delete task</string>
 </resources>
