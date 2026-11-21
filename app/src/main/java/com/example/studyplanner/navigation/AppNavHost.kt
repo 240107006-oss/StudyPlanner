@@ -51,8 +51,14 @@ fun AppNavHost(
             if (task != null) {
                 TaskDetailScreen(
                     task = task,
-                    onBackClick = { navController.navigateUp() }
-                )} else {
+                    onBackClick = { navController.navigateUp() },
+                    onToggleDone = { viewModel.toggleDone(task.id) },
+                    onDeleteClick = {
+                        viewModel.deleteTask(task.id)
+                        navController.navigateUp()
+                    }
+                )
+            } else {
                 Text(stringResource(R.string.task_not_found))
             }
         }
