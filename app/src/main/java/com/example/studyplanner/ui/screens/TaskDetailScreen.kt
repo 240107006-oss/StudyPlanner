@@ -89,6 +89,13 @@ fun TaskDetailScreen(
                     )
                 )
             }
+            Spacer(modifier = Modifier.height(8.dp))
+            OutlinedButton(
+                onClick = onDeleteClick,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(stringResource(R.string.delete_task))
+            }
         }
     }
 }
